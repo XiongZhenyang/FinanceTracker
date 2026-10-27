@@ -1,30 +1,29 @@
+using FinanceTracker.Api;
+using FinanceTracker.Domain;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FinanceTracker.Controllers;
+namespace FinanceTracker.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
 public class CategoriesController : ControllerBase
 {
-    // Hard-coded list of categories for demo
-    private static readonly string[] Categories = new[]
-    {
-        "Food", "Transport", "Entertainment", "Salary", "Rent", "Utilities"
-    };
+    private readonly ICategoryService _categoryService;
 
-    [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
+    public CategoriesController(ICategoryService categoryService)
     {
-        return Ok(Categories);
+        _categoryService = categoryService;
     }
 
-    [HttpGet("{id}")]
-    public ActionResult<string> GetById(int id)
+    [HttpGet]
+    public async Task<IActionResult> GetCategories()
     {
-        if (id < 1 || id > Categories.Length)
-        {
-            return NotFound();
-        }
-        return Ok(Categories[id - 1]);
+        return Ok(await _categoryService.GetAllCategoriesAsync());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateCategory(Category category)
+    {
+        return Ok(await _categoryService.CreateCategoryAsync(category));
     }
 }
