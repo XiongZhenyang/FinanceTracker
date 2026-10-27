@@ -3,6 +3,5 @@
     <Project Path="src/FinanceTracker.Api/FinanceTracker.Api.csproj" />
     <Project Path="src/FinanceTracker.Domain/FinanceTracker.Domain.csproj" />
     <Project Path="src/FinanceTracker.Persistence/FinanceTracker.Persistence.csproj" />
-    <Project Path="src/FinanceTracker.Services/FinanceTracker.Services.csproj" />
   </Folder>
 </Solution>
