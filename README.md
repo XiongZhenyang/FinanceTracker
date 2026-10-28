@@ -11,8 +11,22 @@ Category management
 Operations with automatic balance updates
 Statistics calculation
 
-Documentation
-Detailed technical documentation is available in the Kreo Knowledge Base.
+API Endpoints
+Accounts API
+GET /api/accounts - Retrieve all accounts
+POST /api/accounts - Create a new account
+
+Categories API
+GET /api/categories - Retrieve all categories
+POST /api/categories - Create a new category
+
+Operations API
+GET /api/operations - Retrieve all operations
+POST /api/operations - Create a new operation
+DELETE /api/operations/{id} - Delete an operation and rollback balance
+
+Statistics API
+GET /api/statistics - Get total income, expense, and net balance
 
 How to run
 1. Update the connection string in appsettings.json.
