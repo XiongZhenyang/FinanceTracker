@@ -6,4 +6,5 @@ public interface IOperationService
 {
     Task<List<Operation>> GetAllOperationsAsync();
     Task<Operation> CreateOperationAsync(Operation operation);
+    Task<bool> DeleteOperationAsync(int id);
 }

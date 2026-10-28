@@ -34,4 +34,23 @@ public class OperationService : IOperationService
         await _context.SaveChangesAsync();
         return operation;
     }
+
+    public async Task<bool> DeleteOperationAsync(int id)
+    {
+        var operation = await _context.Operations.FindAsync(id);
+        if (operation == null) return false;
+
+        var account = await _context.Accounts.FindAsync(operation.AccountId);
+        if (account != null)
+        {
+            if (operation.Type == "Income")
+                account.Balance -= operation.Amount;
+            else if (operation.Type == "Expense")
+                account.Balance += operation.Amount;
+        }
+
+        _context.Operations.Remove(operation);
+        await _context.SaveChangesAsync();
+        return true;
+    }
 }

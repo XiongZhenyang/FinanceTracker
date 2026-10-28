@@ -1,4 +1,5 @@
 using FinanceTracker.Api;
+using FinanceTracker.Api.Middleware;
 using FinanceTracker.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseAuthorization();
 

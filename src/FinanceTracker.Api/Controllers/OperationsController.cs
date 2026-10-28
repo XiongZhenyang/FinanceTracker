@@ -26,4 +26,12 @@ public class OperationsController : ControllerBase
     {
         return Ok(await _operationService.CreateOperationAsync(operation));
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteOperation(int id)
+    {
+        var result = await _operationService.DeleteOperationAsync(id);
+        if (!result) return NotFound();
+        return NoContent();
+    }
 }
