@@ -19,6 +19,17 @@ builder.Services.AddScoped<IStatisticsService, StatisticsService>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    if (!context.Accounts.Any())
+    {
+        context.Accounts.Add(new FinanceTracker.Domain.Account { Name = "Demo Account", Type = "Cash", Balance = 100, OpeningDate = DateTime.UtcNow });
+        context.Categories.Add(new FinanceTracker.Domain.Category { Name = "Demo Category", Type = "Income" });
+        context.SaveChanges();
+    }
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -26,9 +37,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionMiddleware>();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
