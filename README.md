@@ -1,23 +1,23 @@
-# Personal Finance Tracker
+Personal Finance Tracker
 
-Backend development course project (Tomsk State University, HITS).
+Description
+This is a backend REST API for a Personal Finance Tracker. 
+It allows users to create accounts, classify income and expenses, record operations, and view statistics. 
+The project is built with C# and ASP.NET Core, using Entity Framework Core and PostgreSQL.
 
-## Description
+Features
+Account management
+Category management
+Operations with automatic balance updates
+Statistics calculation
 
-A personal finance tracker backend API built with ASP.NET Core (.NET 10).
+Documentation
+Detailed technical documentation is available in the Kreo Knowledge Base.
 
-This repository contains:
-- Project 1 (core version): accounts, categories, income/expense operations, statistics
-- Project 2 (advanced version): multi-currency, budgets, background services (to be added)
+How to run
+1. Update the connection string in appsettings.json.
+2. Run dotnet build.
+3. Run dotnet run --project src/FinanceTracker.Api.
 
-## Tech Stack
-
-- .NET 10
-- ASP.NET Core Web API
-- PostgreSQL
-- Entity Framework Core
-- Swagger / OpenAPI
-
-## Author
-
-XiongZhenyang
+Author
+Xiong Zhenyang
