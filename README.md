@@ -30,8 +30,15 @@ GET /api/statistics - Get total income, expense, and net balance
 
 How to run
 1. Update the connection string in appsettings.json.
-2. Run dotnet build.
-3. Run dotnet run --project src/FinanceTracker.Api.
+2. Run the following commands in the terminal:
+dotnet build
+dotnet run --project src/FinanceTracker.Api
+
+Documentation
+Detailed technical documentation and project planning can be found in the Kreo Knowledge Base.
 
 Author
 Xiong Zhenyang
+
+Version
+v1.0.0 - Final Release
